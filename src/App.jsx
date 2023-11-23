@@ -1,3 +1,14 @@
-export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+/*
+Use styled components
+*/
+import TaskList from "./components/TasksList";
+
+const App = () => {
+  return (
+    <div className="md:container md:mx-auto">
+      <TaskList />
+    </div>
+  );
 };
+
+export default App;
