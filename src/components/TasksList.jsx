@@ -59,6 +59,11 @@ const TaskList = () => {
           ))}
         </Table.Body>
       </Table>
+      {tasks.tasks.length <= 0 && (
+        <h2 className="text-center my-2">
+          No tasks currently, start making some!
+        </h2>
+      )}
       <div className="flex my-8 gap-5 justify-center">
         <TaskModal />
         <Button color="warning" onClick={() => dispatch(clearTasks())}>
