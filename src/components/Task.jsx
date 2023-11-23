@@ -26,7 +26,7 @@ const Task = ({ index, name, category, created, due, isDone }) => {
         <Table.Cell>{created && new Date(created).toDateString()}</Table.Cell>
         <Table.Cell>{due && new Date(due).toDateString()}</Table.Cell>
         <Table.Cell>
-          <div className="flex gap-2">
+          <div className="flex gap-2 justify-center">
             <TaskModal index={index} />
             <Button color="warning" onClick={() => dispatch(removeTask(index))}>
               Delete

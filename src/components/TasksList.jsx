@@ -59,7 +59,7 @@ const TaskList = () => {
           ))}
         </Table.Body>
       </Table>
-      <div className="flex my-8 gap-5">
+      <div className="flex my-8 gap-5 justify-center">
         <TaskModal />
         <Button color="warning" onClick={() => dispatch(clearTasks())}>
           Delete all
