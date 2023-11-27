@@ -1,10 +1,3 @@
-/*
-List all todos (maybe separate done and todo?)
-Add and remove tasks (edit also?)
-Show count of tasks (todo/done/total?)
-Complete all button
-Add filters
-*/
 "use client";
 
 import { useState, useEffect } from "react";
@@ -35,6 +28,12 @@ const TaskList = () => {
   return (
     <>
       <h1 className="text-xl font-bold text-center my-8">Task List</h1>
+      <h3 className="text-l my-2">
+        {tasks.tasks.length > 0 &&
+          `${tasks.tasks.filter(({ isDone }) => isDone === true).length} / ${
+            tasks.tasks.length
+          }`}
+      </h3>
       <Table hoverable>
         <Table.Head>
           <Table.HeadCell>

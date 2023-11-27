@@ -1,9 +1,3 @@
-/*
-Mark task as completed
-Add timestamp (created and due date)
-Add categories
-Make Task groups/projects
-*/
 import { useDispatch } from "react-redux";
 import { Checkbox, Table, Button } from "flowbite-react";
 import TaskModal from "./TaskModal";

@@ -1,6 +1,3 @@
-/*
-Use styled components
-*/
 import TaskList from "./components/TasksList";
 
 const App = () => {
