@@ -11,6 +11,7 @@ const Task = ({ index, name, category, created, due, isDone }) => {
       <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
         <Table.Cell className="p-4">
           <Checkbox
+            aria-label="isDone"
             checked={isDone}
             onChange={() => dispatch(toggleDone(index))}
           />
@@ -22,7 +23,7 @@ const Task = ({ index, name, category, created, due, isDone }) => {
         <Table.Cell>
           <div className="flex gap-2 justify-center">
             <TaskModal index={index} />
-            <Button color="warning" onClick={() => dispatch(removeTask(index))}>
+            <Button color="failure" onClick={() => dispatch(removeTask(index))}>
               Delete
             </Button>
           </div>

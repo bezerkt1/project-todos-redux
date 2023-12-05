@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Checkbox, Table, Button } from "flowbite-react";
 import Task from "./Task";
 import TaskModal from "./TaskModal";
-import { completeAll, clearTasks } from "../reducers/tasksSlice";
+import { setAll, clearTasks } from "../reducers/tasksSlice";
 
 const TaskList = () => {
   const dispatch = useDispatch();
@@ -38,10 +38,9 @@ const TaskList = () => {
         <Table.Head>
           <Table.HeadCell>
             <Checkbox
+              aria-label="toggleAllDone"
               checked={allDone}
-              onChange={() => {
-                dispatch(completeAll());
-              }}
+              onChange={() => dispatch(setAll(!allDone))}
             />
           </Table.HeadCell>
           <Table.HeadCell>Task</Table.HeadCell>
@@ -65,7 +64,7 @@ const TaskList = () => {
       )}
       <div className="flex my-8 gap-5 justify-center">
         <TaskModal />
-        <Button color="warning" onClick={() => dispatch(clearTasks())}>
+        <Button color="failure" onClick={() => dispatch(clearTasks())}>
           Delete all
         </Button>
       </div>

@@ -13,7 +13,7 @@ const initialState = {
       isDone: true,
       created: Date.now(),
     },
-  ]
+  ],
 };
 
 const tasksSlice = createSlice({
@@ -21,15 +21,14 @@ const tasksSlice = createSlice({
   initialState,
   reducers: {
     clearTasks: (state) => {
-      state.tasks = []
+      state.tasks = [];
     },
     setTask: (state, action) => {
       if (action.payload.index !== undefined && action.payload.index !== null) {
         state.tasks[action.payload.index] = action.payload.task;
       } else {
-        state.tasks.push({...action.payload.task, created: Date.now()});
+        state.tasks.push({ ...action.payload.task, created: Date.now() });
       }
-      
     },
     removeTask: (state, action) => {
       state.tasks.pop(action.payload);
@@ -37,12 +36,15 @@ const tasksSlice = createSlice({
     toggleDone: (state, action) => {
       state.tasks[action.payload].isDone = !state.tasks[action.payload].isDone;
     },
-    completeAll: (state) => {
-      state.tasks.forEach((task) => {task.isDone = true;});
-    }
+    setAll: (state, action) => {
+      state.tasks.forEach((task) => {
+        task.isDone = action.payload;
+      });
+    },
   },
 });
 
-export const { clearTasks, setTask, removeTask, toggleDone, completeAll } = tasksSlice.actions;
+export const { clearTasks, setTask, removeTask, toggleDone, setAll } =
+  tasksSlice.actions;
 
 export default tasksSlice.reducer;
